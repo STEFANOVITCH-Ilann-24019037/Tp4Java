@@ -1,0 +1,48 @@
+
+Exo5 :
+Rédefinir une méthode signifie que dans
+une sous-classe une méthode existante dans une 
+classe parente est réécrite pour changer son comportement.
+
+Exo6 :
+Dans VeloElec es méthodes redéfinies sont :
+
+1) getPuissance(double FrequenceCoupsDePedale) : Cette méthode redéfinit la méthode getPuissance de Velo.
+
+2) toString() : Cette méthode redéfinit la méthode toString de Velo pour fournir une description spécifique de l'objet VeloElec.
+
+Exo7 :
+L'annotation @Override indique que la méthode qui la précède redéfinit une méthode d'une classe parente.
+
+Exo8 :
+L'annotation @Override est pertinente car elle permet au compilateur de vérifier que la méthode redéfinie correspond à une méthode de la classe parente, et cela permet d'éviter des erreur lier a un mauvais nom de méthode ou encore des parametre incorrects.
+Si on s'en dispense, le code fonctionne toujours, mais on perd cette vérification et en cas d'erreur il sera difficile de la detecter lors de la compilation.
+
+Exo9 :
+Voici les méthode ou il serait pertinent de mettre @Override :
+
+
+Classe Velo:
+
+@Override
+public String toString() {
+    return "Velo [braquet=" + braquet + ", diamRoue=" + diamRoue + "]"; 
+}
+
+@Override
+public double getPuissance(double FrequenceCoupsDePedale) {
+    return FrequenceCoupsDePedale * braquet * diamRoue * genAlea.nextDouble();
+}
+
+
+
+Classe VeloElec :
+
+@Override
+public double getPuissance(double FrequenceCoupsDePedale) {
+    return super.getPuissance(FrequenceCoupsDePedale) * facteurPuissanceMoteur;
+}
+
+Exo10 :
+L'appel super.getPuissance(FrequenceCoupsDePedale) permet d'appeler la méthode getPuissance() de la classe parente Velo depuis la classe dérivée VeloElec.
+
