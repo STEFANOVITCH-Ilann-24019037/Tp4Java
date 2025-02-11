@@ -36,7 +36,9 @@ public class Visit {
 		return serviceExpense +productExpense;
 	}
 	
-	
+	public String toString() {
+		return "Customer :"+customer.toString()+" Expense: "+ getTotalExpense() +"$";
+	}
 	
 
 }
